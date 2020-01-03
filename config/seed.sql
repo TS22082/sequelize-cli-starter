@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS todo_new;
+CREATE DATABASE todo_new;
