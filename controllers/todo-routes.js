@@ -17,4 +17,14 @@ router.post("/", (req, res) => {
   });
 });
 
+router.delete("/delete/:id", (req, res) => {
+  db.Todo.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(todo => {
+    res.json(todo);
+  });
+});
+
 module.exports = router;

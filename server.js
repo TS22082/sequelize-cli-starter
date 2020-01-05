@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const db = require("./models");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static("./views"));
 
 const todoRoutes = require("./controllers/todo-routes");
 app.use("/api/todos", todoRoutes);
