@@ -11,10 +11,15 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   db.Todo.create({
     text: req.body.text,
-    complete: false
-  }).then(todo => {
-    res.json(todo);
-  });
+    complete: req.body.complete
+  })
+    .then(todo => {
+      res.json(todo);
+    })
+    .catch(err => {
+      console.log(err);
+      res.json(err);
+    });
 });
 
 router.delete("/delete/:id", (req, res) => {
